@@ -211,7 +211,7 @@ img {
     }
     #todoInput{max-width: 70%;}
 }
-@media screen and (max-width: 622px) {
+@media screen and (max-width: 768px) {
     .container {width: 15rem;}
     .todo li {flex-direction: column;}
 }
