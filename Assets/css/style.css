@@ -213,6 +213,7 @@ img {
 }
 @media screen and (max-width: 622px) {
     .container {width: 15rem;}
+    .todo li {flex-direction: column;}
 }
 @media  screen and (max-width: 448px) {
     .wrapper{
