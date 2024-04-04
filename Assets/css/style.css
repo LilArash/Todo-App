@@ -210,11 +210,10 @@ img {
         gap: 1rem;
     }
     #todoInput{max-width: 70%;}
-    .todo li {flex-direction: column;}
 }
 @media screen and (max-width: 768px) {
     .container {width: 15rem;}
-    
+    .todo li {flex-direction: column;}
 }
 @media  screen and (max-width: 448px) {
     .wrapper{
