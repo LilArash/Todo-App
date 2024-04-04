@@ -1,0 +1,221 @@
+@font-face {
+    font-family: 'poppins regular';
+    src: url(../fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'poppins light';
+    src: url(../fonts/Poppins-Light.ttf);
+}
+
+:root {
+    --theme-color: #FFBE98;
+}
+[data-theme="dark"] {
+    --body-bg-color: #1f2937;
+}
+[data-theme="light"] {
+    --body-bg-color: #e5e7eb;
+}
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'poppins regular';
+    background: #e5e7eb;
+    background-color: var(--body-bg-color);
+    transition: background-color 0.5s ease;
+}
+
+img {
+    height: 20px;
+    width: 20px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: .75rem;
+    margin: 2rem;
+}
+
+.container {
+    min-height: 15rem;
+    width: 40rem;
+    margin: .75rem 2rem;
+    background-color: var(--body-bg-color);
+    border-radius: 7px;
+    transition: background-color 0.5s ease;
+}
+
+.header {
+    background-color: var(--theme-color);
+    padding: .75rem;
+    transition:background-color 1s ease-in-out;
+    border-radius: 7px;
+    color: #fff
+}
+
+.add-todo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#todoInput {
+    width: 70%;
+    padding: .5rem;
+    font-family: inherit;
+    border-radius: 7px;
+    border: 1px;
+    outline: none;
+}
+#todoInput:focus {
+    border: 1px solid #4169e1;
+}
+
+.todo {
+    padding: .5rem;
+    margin: .2rem;
+    padding: .75rem;
+}
+
+.todo li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--theme-color);
+    border-radius: 7px;
+    padding: .75rem;
+    margin-bottom: .75rem;
+    transition:background-color 1s ease-in-out;
+    color: #fff
+}
+.todoIsDone {
+    text-decoration: line-through #254dc3 3px;
+}
+.btn {
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    padding: .2rem 1rem;
+    font-family: inherit;
+    margin: .2rem;
+    transition:all .2s ease-in-out;
+    cursor: pointer;
+}
+
+.btn-addtodo {
+    background-color: #4169e1;
+    align-items: center;
+    gap: 5px;
+    height: 2.5rem;
+}
+
+.btn-addtodo:hover {
+    background-color: #254dc3;
+}
+
+.btn-clear {
+    background-color: #f57676;
+    text-align: center;
+    gap: 5px;
+    height: 2.5rem;
+}
+
+.btn-clear:hover {
+    background-color: #df5555;
+}
+
+.btn-done {
+    background-color: #97ec78;
+}
+
+.btn-done:hover {
+    background-color: #5dd830;
+}
+
+.btn-remove {
+    background-color: #FDA403;
+}
+
+.btn-remove:hover {
+    background-color: #cd8807;
+}
+
+.theme {
+    display: flex;
+    justify-content: space-between;
+}
+
+.theme-color {
+    background-color: var(--theme-color);
+    padding: .75rem;
+    margin: 1rem 2rem;
+    margin-bottom: 0;
+    border-radius: 7px;
+    transition:background-color 1s ease-in-out;
+}
+
+.color {
+    height: 25px;
+    width: 25px;
+    border: 3px solid #dddddd;
+    outline: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.color1 {
+    background-color: #3498db;
+}
+
+.color2 {
+    background-color: #f55580;
+}
+
+.color3 {
+    background-color: #1cb65d;
+}
+
+.color4 {
+    background-color: #c796dd;
+}
+
+.color5 {
+    background-color: #f4b932;
+}
+.color6 {
+    background-color: #FFBE98;
+}
+.darkLightTogg {
+    background: var(--theme-color);
+    padding: .75rem;
+    margin: 1rem 2rem;
+    margin-bottom: 0;
+    border-radius: 7px;
+    transition:background-color 1s ease-in-out;
+}
+
+@media screen and (max-width: 987px) {
+    .container {width: 20rem;}
+    .add-todo{
+        flex-direction: column;
+        align-items: start;
+        gap: 1rem;
+    }
+    #todoInput{max-width: 70%;}
+}
+@media screen and (max-width: 622px) {
+    .container {width: 15rem;}
+}
+@media  screen and (max-width: 448px) {
+    .wrapper{
+        margin: 2rem auto;
+    }
+}
