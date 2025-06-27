@@ -301,4 +301,7 @@ img {
         align-items: center;
  
     }
+     .add-todo {
+        margin-inline: .5rem;
+    }
 }
