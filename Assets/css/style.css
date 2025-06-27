@@ -85,6 +85,7 @@ img {
 
 .add-todo {
     display: flex;
+    justify-self: center;
     flex-direction: column;
     gap: .5rem;
     flex-wrap: wrap;
@@ -97,6 +98,7 @@ img {
 }
 
 #todoInput {
+    width: 100%;
     padding: .5rem;
     font-family: inherit;
     border-radius: 10px;
@@ -300,7 +302,13 @@ img {
         align-items: center;
  
     }
-     .add-todo {
-        margin-inline: .5rem;
+
+    .add-todo {
+        margin-inline: .5rem !important;
+    }
+
+    #todoInput {
+        width: 100%;
+        font-size: 16px;
     }
 }
