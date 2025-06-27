@@ -11,12 +11,19 @@
 :root {
     --theme-color: #FFBE98;
 }
+
 [data-theme="dark"] {
     --body-bg-color: #1f2937;
 }
+
 [data-theme="light"] {
     --body-bg-color: #e5e7eb;
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     padding: 0;
     margin: 0;
@@ -25,6 +32,9 @@ body {
     background: #e5e7eb;
     background-color: var(--body-bg-color);
     transition: background-color 0.5s ease;
+    overflow-x: hidden;
+    position: relative;
+
 }
 
 img {
@@ -32,57 +42,76 @@ img {
     width: 20px;
 }
 
-.wrapper {
+
+.header {
     display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: .75rem;
-    margin: 2rem;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2rem 4rem 1rem;
+    border-bottom: 2px solid var(--theme-color);
+}
+
+.theme {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: .5rem;
 }
 
 .container {
-    min-height: 15rem;
-    width: 40rem;
-    margin: .75rem 2rem;
+
+    margin: .75rem 4rem;
     background-color: var(--body-bg-color);
-    border-radius: 7px;
+    border-radius: 10px;
     transition: background-color 0.5s ease;
 }
 
-.header {
+.todo-box {
     background-color: var(--theme-color);
-    padding: .75rem;
-    transition:background-color 1s ease-in-out;
-    border-radius: 7px;
-    color: #fff
+    padding: 1rem;
+    margin-bottom: 2rem;
+    transition: background-color 1s ease-in-out;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.todo-box h2 {
+    text-align: center;
 }
 
 .add-todo {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    gap: .5rem;
     flex-wrap: wrap;
+    margin-inline: 2rem;
+}
+
+.add-buttons-wrapper {
+    display: flex;
+    justify-content: space-between;
 }
 
 #todoInput {
-    width: 70%;
     padding: .5rem;
     font-family: inherit;
-    border-radius: 7px;
+    border-radius: 10px;
     border: 1px;
     outline: none;
+
 }
+
 #todoInput:focus {
     border: 1px solid #4169e1;
 }
 
 .todo {
-    padding: .5rem;
-    margin: .2rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
     padding: .75rem;
+    margin: 0;
 }
 
 .todo li {
@@ -90,23 +119,30 @@ img {
     justify-content: space-between;
     align-items: center;
     background-color: var(--theme-color);
-    border-radius: 7px;
-    padding: .75rem;
-    margin-bottom: .75rem;
-    transition:background-color 1s ease-in-out;
-    color: #fff
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 0;
+    transition: background-color 1s ease-in-out;
+    color: #fff;
 }
+
+.todo p {
+    white-space: normal;
+    word-break: break-all;
+}
+
 .todoIsDone {
     text-decoration: line-through #254dc3 3px;
 }
+
 .btn {
     color: #fff;
-    border-radius: 5px;
+    border-radius: 10px;
     border: none;
     padding: .2rem 1rem;
     font-family: inherit;
     margin: .2rem;
-    transition:all .2s ease-in-out;
+    transition: all .2s ease-in-out;
     cursor: pointer;
 }
 
@@ -148,18 +184,14 @@ img {
     background-color: #cd8807;
 }
 
-.theme {
-    display: flex;
-    justify-content: space-between;
-}
+
 
 .theme-color {
     background-color: var(--theme-color);
-    padding: .75rem;
-    margin: 1rem 2rem;
-    margin-bottom: 0;
-    border-radius: 7px;
-    transition:background-color 1s ease-in-out;
+    padding: 1rem;
+    border-radius: 10px;
+    height: fit-content;
+    transition: background-color 1s ease-in-out;
 }
 
 .color {
@@ -190,33 +222,79 @@ img {
 .color5 {
     background-color: #f4b932;
 }
+
 .color6 {
     background-color: #FFBE98;
 }
-.darkLightTogg {
+
+.arrow-up {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0.5rem;
+    right: 0.5rem;
     background: var(--theme-color);
-    padding: .75rem;
-    margin: 1rem 2rem;
-    margin-bottom: 0;
-    border-radius: 7px;
-    transition:background-color 1s ease-in-out;
+    height: 25px;
+    width: 25px;
+    padding: 1rem;
+    margin: 1rem;
+    border: 2px #fff solid;
+    border-radius: 50%;
+    box-shadow: 1rem;
+    transition: background-color 1s ease-in-out;
+    
 }
 
-@media screen and (max-width: 990px) {
-    .container {width: 20rem;}
-    .add-todo{
-        flex-direction: column;
-        align-items: start;
-        gap: 1rem;
+.arrow-up img {
+    width: 20px;
+    height: 20px;
+}
+
+.darkLightTogg {
+    background: var(--theme-color);
+    height: 25px;
+    width: 25px;
+    padding: 1rem;
+    margin-bottom: 0;
+    border-radius: 10px;
+    transition: background-color 1s ease-in-out;
+}
+
+@media screen and (max-width: 798px) {
+    .header {
+        flex-direction: column-reverse;
     }
-    #todoInput{max-width: 70%;}
+
+    .todo {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .theme {
+        justify-content: space-between;
+        width: 100%;
+    }
+
 }
-@media screen and (max-width: 768px) {
-    .container {width: 15rem;}
-    .todo li {flex-direction: column;}
+
+@media screen and (max-width: 1160px) {
+    .todo {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
 }
-@media  screen and (max-width: 448px) {
-    .wrapper{
-        margin: 2rem auto;
+
+@media screen and (max-width: 640px) {
+
+    .header,
+    .container {
+        margin-inline: 2rem;
+    }
+
+    .todo li {
+        flex-direction: column;
+        align-items: center;
+ 
     }
 }

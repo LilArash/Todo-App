@@ -7,6 +7,8 @@ const todosListElem = $.querySelector('.todo');
 const container = $.querySelector('.container');
 const colors = $.querySelectorAll('.color');
 const darkLightTogg = $.querySelector('.darkLightTogg');
+const title = $.querySelector('.title');
+const arrowUpBtn = $.querySelector('.arrow-up');
 let todosArr = [];
 //adding todo via localstorage
 function addTodo() {
@@ -48,7 +50,7 @@ function showTodo(todosList) {
         }
         btnContainer.append(btnComplete, btnDelete)
         todoBox.append(todoTitle, btnContainer);
-        todosListElem.append(todoBox);
+        todosListElem.prepend(todoBox);
     });
 }
 //getting saved todos from localstorage
@@ -115,15 +117,32 @@ function toggleDarkMode() {
         darkLightTogg.setAttribute('src', './Assets/imgs/light.svg');
         document.documentElement.setAttribute('data-theme', 'dark');
         localStorage.setItem('theme', 'dark');
+        title.style.color = '#fff';
         flag = true;
     } else if (flag) {
         darkLightTogg.setAttribute('src', './Assets/imgs/dark.svg');
         document.documentElement.setAttribute('data-theme', 'light');
         localStorage.setItem('theme', 'light');
+        title.style.color = '#1f2937';
         flag = false;
     }
-   
+
 }
+//arrow-up scroll btn function
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 0) {
+        arrowUpBtn.style.display = 'flex';
+    } else {
+        arrowUpBtn.style.display = 'none';
+    }
+})
+arrowUpBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+})
+/*------------------------------------*/
 window.addEventListener('load', () => {
     const savedTheme = localStorage.getItem('theme');
 

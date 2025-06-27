@@ -4,46 +4,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href=".//Assets/css/style.css">
+    <link rel="stylesheet" href="./Assets/css/style.css">
     <link rel="shortcut icon" href="./Assets/imgs/icon.png" type="image/x-icon">
     <title>Todo App</title>
 </head>
 
 <body>
     <div class="wrapper">
-        <div class="theme">
-            <div class="theme-color">
-                <button class="color color1" data-color="#3498db"></button>
-                <button class="color color2" data-color="#f55580"></button>
-                <button class="color color3" data-color="#1cb65d"></button>
-                <button class="color color4" data-color="#c796dd"></button>
-                <button class="color color5" data-color="#f4b932"></button>
-                <button class="color color6" data-color="#FFBE98"></button>
+        <div class="inner-wrapper">
+            <div id="top" class="header">
+                <div class="theme">
+                    <div class="theme-color">
+                        <button class="color color1" data-color="#3498db"></button>
+                        <button class="color color2" data-color="#f55580"></button>
+                        <button class="color color3" data-color="#1cb65d"></button>
+                        <button class="color color4" data-color="#c796dd"></button>
+                        <button class="color color5" data-color="#f4b932"></button>
+                        <button class="color color6" data-color="#FFBE98"></button>
+                    </div>
+                    <img class="darkLightTogg" src="./Assets/imgs/dark.svg" alt="dark">
+                </div>
+               
+                    <h1 class="title">Todo App</h1>
+                
             </div>
-               <img class="darkLightTogg" src="./Assets/imgs/dark.svg" alt="dark">     
-        </div>
-        <div class="container">
-            <div class="header">
-                <h2>Todo App</h2>
-                <div class="add-todo">
-                    <input type="text" id="todoInput" placeholder="hey! add something to do">
-                    <div>
-                        <button class="btn btn-addtodo">
-                            add
-                        </button>
-                        <button class="btn btn-clear">
-                            clear
-                        </button>
+            <div class="container">
+                <div class="todo-box">
+                    <h2>Add something to do!</h2>
+                    <div class="add-todo">
+                        <input type="text" id="todoInput" placeholder="type here...">
+                        <div class="add-buttons-wrapper">
+                            <button class="btn btn-addtodo">
+                                add
+                            </button>
+                            <button class="btn btn-clear">
+                                clear
+                            </button>
+                        </div>
                     </div>
                 </div>
+
+                <ul class="todo">
+                </ul>
             </div>
-           
-            <ul class="todo">
-            </ul>
         </div>
+        <a href="#top" class="arrow-up">
+            <img src="./Assets/imgs/arrowup.svg" alt="arrow-up">
+        </a>
     </div>
 
-  
+
     <script src="./Assets/js/script.js"></script>
 </body>
 
